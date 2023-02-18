@@ -1,0 +1,8 @@
+---
+#
+# Ansible managed
+#
+repository:
+  description: Configure vault_snapshot on Vault.
+  homepage: https://robertdebock.nl/
+  topics: vaultsnapshot, snapshot, ansible, molecule, tox, playbook, hacktoberfest

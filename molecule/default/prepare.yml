@@ -1,0 +1,51 @@
+---
+- name: Prepare
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  roles:
+    - role: robertdebock.bootstrap
+    - role: robertdebock.core_dependencies
+    - role: robertdebock.hashicorp
+    - role: robertdebock.vault
+      vault_type: ent
+    - role: robertdebock.vault_configuration
+      vault_configuration_license: "{{ lookup('ansible.builtin.env', 'VAULT_LICENSE') }}"
+      vault_configuration_listener_tcp:
+        address: "127.0.0.1:8200"
+        cluster_address: "127.0.0.1:8201"
+        tls_disable: yes
+      vault_configuration_storage_raft:
+        path: "/opt/vault/data"
+        node_id: "{{ ansible_hostname }}"
+
+  tasks:
+    - name: Flush handlers
+      ansible.builtin.meta: flush_handlers
+
+    - name: Initialize Vault
+      ansible.builtin.command:
+        cmd: vault operator init -format=yaml
+      register: vault_init_raw
+      environment:
+        VAULT_ADDR: "http://localhost:8200"
+
+    - name: Store vault_init_raw output as YAML
+      ansible.builtin.set_fact:
+        vault_init: "{{ vault_init_raw.stdout | from_yaml }}"
+
+    - name: Store root_token
+      ansible.builtin.copy:
+        content: "{{ vault_init.root_token }}"
+        dest: /root/.vault-token
+        owner: root
+        group: root
+        mode: "0640"
+
+    - name: Unseal Vault
+      ansible.builtin.command:
+        cmd: vault operator unseal {{ item }}
+      loop: "{{ vault_init.unseal_keys_b64 }}"
+      environment:
+        VAULT_ADDR: "http://localhost:8200"
