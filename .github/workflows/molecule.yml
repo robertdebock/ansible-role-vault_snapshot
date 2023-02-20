@@ -54,10 +54,6 @@ jobs:
           - image: "ubuntu"
             tag: "bionic"
     steps:
-      - name: show something
-        run: echo ${VAULT_LICENSE:0:10}
-        env:
-          VAULT_LICENSE: ${{ secrets.VAULT_LICENSE }}
       - name: checkout
         uses: actions/checkout@v3
         with:
