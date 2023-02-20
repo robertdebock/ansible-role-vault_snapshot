@@ -24,6 +24,6 @@ platforms:
 provisioner:
   name: ansible
   env:
-    VAULT_TOKEN: "${VAULT_TOKEN}"
+    VAULT_LICENSE: "${VAULT_LICENSE}"
 verifier:
   name: ansible
