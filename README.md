@@ -82,6 +82,11 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers
 
+    - name: Start Vault
+      ansible.builtin.service:
+        name: vault
+        state: started
+
     - name: Initialize Vault
       ansible.builtin.command:
         cmd: vault operator init -format=yaml
@@ -133,7 +138,7 @@ vault_snapshot_schedules: []
 
 - pip packages listed in [requirements.txt](https://github.com/robertdebock/ansible-role-vault_snapshot/blob/master/requirements.txt).
 
-## [Status of used roles](#status-of-requirements)
+## [State of used roles](#state-of-used-roles)
 
 The following roles are used to prepare a system. You can prepare your system in another way.
 
