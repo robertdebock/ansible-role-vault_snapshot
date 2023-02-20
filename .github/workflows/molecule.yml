@@ -67,3 +67,5 @@ jobs:
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
+        env:
+          VAULT_LICENSE: ${{ secrets.VAULT_LICENSE }}
