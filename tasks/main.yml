@@ -31,3 +31,4 @@
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
     label: "{{ item.name }}"
+  run_once: yes
