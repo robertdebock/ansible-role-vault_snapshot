@@ -5,6 +5,7 @@
     that:
       - vault_snapshot_address is defined
       - vault_snapshot_address is string
+      - vault_snapshot_address is not none
     quiet: yes
 
 - name: assert | Test if vault_snapshot_token is set correctly
@@ -12,6 +13,7 @@
     that:
       - vault_snapshot_token is defined
       - vault_snapshot_token is string
+      - vault_snapshot_token is not none
     quiet: yes
 
 - name: assert | Test if vault_snapshot_schedules is set correctly
@@ -26,6 +28,7 @@
     that:
       - item.name is defined
       - item.name is string
+      - item.name is not none
     quiet: yes
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
@@ -57,6 +60,7 @@
     that:
       - item.path_prefix is defined
       - item.path_prefix is string
+      - item.path_prefix is not none
     quiet: yes
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
@@ -92,6 +96,7 @@
     that:
       - item.aws_s3_bucket is defined
       - item.aws_s3_bucket is string
+      - item.aws_s3_bucket is not none
     quiet: yes
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
@@ -104,6 +109,7 @@
     that:
       - item.aws_s3_region is defined
       - item.aws_s3_region is string
+      - item.aws_s3_region is not none
     quiet: yes
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
@@ -115,6 +121,7 @@
   ansible.builtin.assert:
     that:
       - item.aws_access_key_id is string
+      - item.aws_access_key_id is not none
     quiet: yes
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
@@ -127,6 +134,7 @@
   ansible.builtin.assert:
     that:
       - item.aws_secret_access_key is string
+      - item.aws_secret_access_key is not none
     quiet: yes
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
@@ -152,6 +160,7 @@
     that:
       - item.azure_container_name is defined
       - item.azure_container_name is string
+      - item.azure_container_name is not none
     quiet: yes
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
@@ -163,6 +172,7 @@
   ansible.builtin.assert:
     that:
       - item.azure_account_name is string
+      - item.azure_account_name is not none
     quiet: yes
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
@@ -175,6 +185,7 @@
   ansible.builtin.assert:
     that:
       - item.azure_account_key is string
+      - item.azure_account_key is not none
     quiet: yes
   loop: "{{ vault_snapshot_schedules }}"
   loop_control:
