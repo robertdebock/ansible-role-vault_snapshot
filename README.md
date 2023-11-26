@@ -1,4 +1,4 @@
-# Ansible role [vault_snapshot](#vault_snapshot)
+# [Ansible role vault_snapshot](#vault_snapshot)
 
 Configure vault_snapshot on Vault.
 
