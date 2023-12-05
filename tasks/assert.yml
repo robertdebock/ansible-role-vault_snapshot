@@ -193,3 +193,10 @@
   when:
     - item.storage_type == "azure-blob"
     - item.azure_account_key is defined
+
+- name: assert | Test vault_snapshot_ssl_verify
+  ansible.builtin.assert:
+    that:
+      - vault_snapshot_ssl_verify is defined
+      - vault_snapshot_ssl_verify is boolean
+    quiet: yes
