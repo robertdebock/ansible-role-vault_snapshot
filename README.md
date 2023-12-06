@@ -132,6 +132,9 @@ vault_snapshot_token: "simple"
 
 # A list of snapshots to configure. Please have look in `molecule/default/converge.yml` for a complete example.
 vault_snapshot_schedules: []
+
+# Should SSL certificate verification be disabled?
+vault_snapshot_ssl_verify: yes
 ```
 
 ## [Requirements](#requirements)
