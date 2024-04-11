@@ -128,7 +128,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 vault_snapshot_address: "http://localhost:8200"
 
 # Set a token to connect to Vault. Similar to `VAULT_TOKEN`.
-vault_snapshot_token: "simple"
+vault_snapshot_token: ""
 
 # A list of snapshots to configure. Please have look in `molecule/default/converge.yml` for a complete example.
 vault_snapshot_schedules: []
