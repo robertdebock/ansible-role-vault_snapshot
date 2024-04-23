@@ -68,6 +68,7 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
     - role: robertdebock.hashicorp
     - role: robertdebock.vault
       vault_type: ent
+      vault_hardening_disable_swap: false
     - role: robertdebock.vault_configuration
       vault_configuration_license: "{{ lookup('ansible.builtin.env', 'VAULT_LICENSE') }}"
       vault_configuration_listener_tcp:
