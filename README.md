@@ -93,7 +93,9 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
         cmd: vault operator init -format=yaml
       register: vault_init_raw
       environment:
-        VAULT_ADDR: "http://localhost:8200"
+        VAULT_ADDR: "https://localhost:8200"
+        VAULT_SKIP_VERIFY: "true"
+      changed_when: true
 
     - name: Store vault_init_raw output as YAML
       ansible.builtin.set_fact:
@@ -112,7 +114,9 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
         cmd: vault operator unseal {{ item }}
       loop: "{{ vault_init.unseal_keys_b64 }}"
       environment:
-        VAULT_ADDR: "http://localhost:8200"
+        VAULT_ADDR: "https://localhost:8200"
+        VAULT_SKIP_VERIFY: "true"
+      changed_when: true
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
