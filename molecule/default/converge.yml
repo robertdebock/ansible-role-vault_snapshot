@@ -13,6 +13,7 @@
   roles:
     - role: ansible-role-vault_snapshot
       vault_snapshot_token: "{{ token_raw['content'] | b64decode }}"
+      vault_snapshot_ssl_verify: false
       vault_snapshot_schedules:
         - name: hourly
           interval_seconds: 3600
