@@ -5,3 +5,4 @@ roles:
   - name: robertdebock.hashicorp
   - name: robertdebock.vault
   - name: robertdebock.vault_configuration
+  - name: community.general
