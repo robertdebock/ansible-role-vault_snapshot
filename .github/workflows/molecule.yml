@@ -42,6 +42,8 @@ jobs:
             tag: "latest"
           - image: "fedora"
             tag: "39"
+          - image: "fedora"
+            tag: "latest"
           - image: "ubuntu"
             tag: "latest"
           - image: "ubuntu"
@@ -61,7 +63,8 @@ jobs:
           if [ ! -f tox.ini ] ; then pip install -r requirements.yml ; pip install ansible-lint ansible-core ; molecule test ; fi
         env:
           image: ${{ matrix.config.image }}
-          tag: ${{ matrix.config.tag }}          VAULT_LICENSE: ${{ secrets.VAULT_LICENSE }}
+          tag: ${{ matrix.config.tag }}
+          VAULT_LICENSE: ${{ secrets.VAULT_LICENSE }}
   python-3-10:
     needs:
       - lint
@@ -82,6 +85,8 @@ jobs:
             tag: "latest"
           - image: "fedora"
             tag: "39"
+          - image: "fedora"
+            tag: "latest"
           - image: "ubuntu"
             tag: "latest"
           - image: "ubuntu"
@@ -101,4 +106,5 @@ jobs:
           if [ ! -f tox.ini ] ; then pip install -r requirements.yml ; pip install ansible-lint ansible-core ; molecule test ; fi
         env:
           image: ${{ matrix.config.image }}
-          tag: ${{ matrix.config.tag }}          VAULT_LICENSE: ${{ secrets.VAULT_LICENSE }}
+          tag: ${{ matrix.config.tag }}
+          VAULT_LICENSE: ${{ secrets.VAULT_LICENSE }}
