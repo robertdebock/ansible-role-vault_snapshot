@@ -4,11 +4,6 @@
   become: true
   gather_facts: false
 
-  pre_tasks:
-    - name: Show VAULT_LICENSE
-      ansible.builtin.debug:
-        msg: "{{ lookup('ansible.builtin.env', 'VAULT_LICENSE') }}"
-
   roles:
     - role: robertdebock.bootstrap
     - role: robertdebock.core_dependencies
