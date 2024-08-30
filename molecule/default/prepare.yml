@@ -59,3 +59,4 @@
         VAULT_ADDR: "https://localhost:8200"
         VAULT_SKIP_VERIFY: "true"
       changed_when: true
+      no_log: true

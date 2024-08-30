@@ -118,6 +118,7 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
         VAULT_ADDR: "https://localhost:8200"
         VAULT_SKIP_VERIFY: "true"
       changed_when: true
+      no_log: true
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
