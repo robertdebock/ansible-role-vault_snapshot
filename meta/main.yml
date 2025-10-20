@@ -8,9 +8,6 @@ galaxy_info:
   min_ansible_version: "2.12"
 
   platforms:
-    - name: Amazon
-      versions:
-        - Candidate
     - name: Debian
       versions:
         - all
@@ -19,11 +16,11 @@ galaxy_info:
         - "9"
     - name: Fedora
       versions:  # Will never work on "all", as rawhide is not supported by HC.
-        - "39"
-        - "40"
+        - all
     - name: Ubuntu
       versions:
-        - all
+        - noble
+        - jammy
 
   galaxy_tags:
     - vaultsnapshot
