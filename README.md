@@ -34,24 +34,24 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
           path_prefix: /opt/vault/snapshots/
           storage_type: local
           local_max_space: 1073741824
-        - name: hourly-aws
-          interval_seconds: 3600
-          retain: 24
-          path_prefix: /hourly
-          storage_type: aws-s3
-          aws_s3_bucket: my-bucket
-          aws_s3_region: eu-central-1
-          aws_access_key_id: some_key
-          aws_secret_access_key: some_secret
-          aws_s3_enable_kms: false
-        - name: hourly-azure
-          interval_seconds: 3600
-          retain: 24
-          path_prefix: /hourly/
-          storage_type: azure-blob
-          azure_container_name: my-blob
-          azure_account_name: some_account
-          azure_account_key: some_key
+          # - name: hourly-aws
+          #   interval_seconds: 3600
+          #   retain: 24
+          #   path_prefix: /hourly
+          #   storage_type: aws-s3
+          #   aws_s3_bucket: my-bucket
+          #   aws_s3_region: eu-central-1
+          #   aws_access_key_id: some_key
+          #   aws_secret_access_key: some_secret
+          #   aws_s3_enable_kms: false
+          # - name: hourly-azure
+          #   interval_seconds: 3600
+          #   retain: 24
+          #   path_prefix: /hourly/
+          #   storage_type: azure-blob
+          #   azure_container_name: my-blob
+          #   azure_account_name: some_account
+          #   azure_account_key: some_key
 ```
 
 The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/robertdebock/ansible-role-vault_snapshot/blob/master/molecule/default/prepare.yml):
