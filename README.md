@@ -78,7 +78,7 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
         tls_disable: true
       vault_configuration_storage_raft:
         path: "/opt/vault/data"
-        node_id: "{{ ansible_hostname }}"
+        node_id: "{{ ansible_facts['hostname'] }}"
 
   tasks:
     - name: Flush handlers
